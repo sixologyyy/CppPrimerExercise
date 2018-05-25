@@ -31,7 +31,7 @@ int main()
             right=mid;
         else
             left=mid+1;
-        mid=left+(right-left)/2;    //×¢Òâ£¬²»ÄÜÓÃ(left+right)/2
+        mid=left+(right-left)/2;    //ä¸èƒ½ç”¨(left+right)/2
     }
     if(mid!=v.cend())
         cout<<mid-v.cbegin()<<endl;
