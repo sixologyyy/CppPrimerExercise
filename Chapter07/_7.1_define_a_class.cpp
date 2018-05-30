@@ -5,7 +5,9 @@ using namespace std;
 class SalesData
 {
 public:
-    SalesData()=default;       //合成的默认构造函数
+    //SalesData()=default;       //合成的默认构造函数
+    //自己定义默认构造函数。因为提供了默认值，所以可以不给参数，此时就是默认构造函数
+    SalesData(string s=""):bookNo(s) {}
     SalesData(const string& s):bookNo(s) {}        //用初始化列表赋值
     SalesData(const string& s, unsigned n, double p):
         bookNo(s),unitsSold(n),revenue(p*n) {}
