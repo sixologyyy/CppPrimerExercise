@@ -23,8 +23,8 @@ public:
 };
 
 SalesData add(const SalesData&, const SalesData&);    //返回相加的副本，而不改变输入的内容
-ostream& print(ostream&, const SalesData&);          //读取isbn、售出本数、单价
-istream& read(istream&, SalesData&);                      //输出isbn、售出本书、收入、平均售价
+istream& read(istream&, SalesData&);                          //读取isbn、售出本数、单价
+ostream& print(ostream&, const SalesData&);              //输出isbn、售出本书、收入、平均售价
 
 SalesData::SalesData(istream& is)
 {
