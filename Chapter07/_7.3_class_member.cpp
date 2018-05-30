@@ -4,7 +4,7 @@
 class Screen
 {
 public:
-	typedef std::string::size_type pos;    //ÀàĞÍ³ÉÔ±ĞèÒªÔÚÊ¹ÓÃÇ°¶¨Òå£¬ÆÕÍ¨³ÉÔ±Ôò²»±Ø
+	typedef std::string::size_type pos;    //ç±»å‹æˆå‘˜éœ€è¦åœ¨ä½¿ç”¨å‰å®šä¹‰ï¼Œæ™®é€šæˆå‘˜åˆ™ä¸å¿…
 
 	Screen() = default;
 	Screen(pos ht, pos wd) :
@@ -12,23 +12,23 @@ public:
 	Screen(pos ht,pos wd,char c):
 		height(ht),width(wd),contents(ht*wd,c) {}
 
-	//¶ÁÈ¡¹â±ê´¦µÄ×Ö·û£¬ÀàÄÚ²¿¶¨ÒåµÄº¯ÊıÊÇÒşÊ½inline
+	//è¯»å–å…‰æ ‡å¤„çš„å­—ç¬¦ï¼Œç±»å†…éƒ¨å®šä¹‰çš„å‡½æ•°æ˜¯éšå¼inline
 	char get() const              
 		{ return contents[cursor]; }
-	//ÏÔÊ½ÉùÃ÷inline£¬getµÄÖØÔØ°æ±¾
+	//æ˜¾å¼å£°æ˜inlineï¼Œgetçš„é‡è½½ç‰ˆæœ¬
 	inline char get(pos ht, pos wd) const;
-	//ÉèÖÃ¹â±êËùÔÚÎ»ÖÃµÄĞÂÖµ
+	//è®¾ç½®å…‰æ ‡æ‰€åœ¨ä½ç½®çš„æ–°å€¼
 	Screen& set(char);
 	Screen& set(pos, pos, char);
-	//ÒÆ¶¯¹â±ê£¬¿ÉÒÔÔÚÖ®ºó¶¨ÒåµÄÊ±ºòÉèÎªÄÚÁª
+	//ç§»åŠ¨å…‰æ ‡ï¼Œå¯ä»¥åœ¨ä¹‹åå®šä¹‰çš„æ—¶å€™è®¾ä¸ºå†…è”
 	Screen& move(pos r, pos c); 
-	//µ÷ÓÃÏÔÊ¾º¯Êı£¬ÓĞ³£Á¿ºÍ·Ç³£Á¿°æ±¾£¬·Ç³£Á¿°æ±¾ÊÇÎªÁËÁ´Ê½²Ù×÷
-	//µ÷ÓÃ·Ç³£Á¿°æ±¾Ê±£¬displayÒşÊ½µØ´«µİthisÖ¸Õë¸ødoDisplay£¬ºóÕßÒşÊ½µØ°ÑÖ¸Ïò·Ç³£Á¿µÄÖ¸Õë×ª»»ÎªÖ¸Ïò³£Á¿µÄÖ¸Õë
+	//è°ƒç”¨æ˜¾ç¤ºå‡½æ•°ï¼Œæœ‰å¸¸é‡å’Œéå¸¸é‡ç‰ˆæœ¬ï¼Œéå¸¸é‡ç‰ˆæœ¬æ˜¯ä¸ºäº†é“¾å¼æ“ä½œ
+	//è°ƒç”¨éå¸¸é‡ç‰ˆæœ¬æ—¶ï¼Œdisplayéšå¼åœ°ä¼ é€’thisæŒ‡é’ˆç»™doDisplayï¼Œåè€…éšå¼åœ°æŠŠæŒ‡å‘éå¸¸é‡çš„æŒ‡é’ˆè½¬æ¢ä¸ºæŒ‡å‘å¸¸é‡çš„æŒ‡é’ˆ
 	Screen& display(std::ostream& os)
 		{ doDisplay(os); return *this; }
-	const Screen& display(std::ostream& os) const        //×¢Òâ£¬µÚÒ»¸öconst²¢²»ÄÜÇø·ÖÖØÔØ£¬ÒòÎª½öÓĞ·µ»ØÖµ²»Í¬
+	const Screen& display(std::ostream& os) const        //æ³¨æ„ï¼Œç¬¬ä¸€ä¸ªconstå¹¶ä¸èƒ½åŒºåˆ†é‡è½½ï¼Œå› ä¸ºä»…æœ‰è¿”å›å€¼ä¸åŒ
 		{ doDisplay(os); return *this; }
-	//¼ÇÂ¼³ÉÔ±º¯Êı±»µ÷ÓÃµÄ´ÎÊı
+	//è®°å½•æˆå‘˜å‡½æ•°è¢«è°ƒç”¨çš„æ¬¡æ•°
 	void someMember() const;      
 
 private:
@@ -36,16 +36,16 @@ private:
 	pos height = 0, width = 0;
 	std::string contents;
 
-	mutable size_t accessCtr;      //mutable¼´Ê¹ÔÚconst¶ÔÏó¡¢·½·¨ÖĞÖĞÒ²ÊÇ¿É±äµÄ
+	mutable size_t accessCtr;      //mutableå³ä½¿åœ¨constå¯¹è±¡ã€æ–¹æ³•ä¸­ä¸­ä¹Ÿæ˜¯å¯å˜çš„
 
-	//¸ºÔğÏÔÊ¾
+	//è´Ÿè´£æ˜¾ç¤º
 	void doDisplay(std::ostream& os) const { os << contents; }
 };
 
-//ÓÃÓÚ×·×ÙScreen
+//ç”¨äºè¿½è¸ªScreen
 class WindowMgr
 {
-//Ä¬ÈÏÇé¿öÏÂ°üº¬Ò»¸ö±ê×¼³ß´çµÄ¿Õ°×Screen
+//é»˜è®¤æƒ…å†µä¸‹åŒ…å«ä¸€ä¸ªæ ‡å‡†å°ºå¯¸çš„ç©ºç™½Screen
 private:
 	std::vector<Screen> screens{ Screen(24,80,' ') };
 };
@@ -93,6 +93,6 @@ int main()
 	std::cout << std::endl;
 
 	cScreen.display(std::cout);
-	std::cout << std::endl;
+	std::cout << std::endl;;
 
 }
