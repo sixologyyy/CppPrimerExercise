@@ -53,7 +53,7 @@ int main()
 		cout << *i << " ";
 	cout << endl;
 
-	//find_if()
+	//find_if()，返回第一个使谓词为true的迭代器
 	it = find_if(v.begin(), v.end(), shorterThan4);
 	cout << "first string shorter than 4 words at v : " << it - v.begin() << endl;
 
